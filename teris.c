@@ -4,7 +4,7 @@
 #include <windows.h>
 #include<conio.h>
 #include<time.h>
-void gotoxy(int x, int y);//控制光標。X表示橫坐標，Y表示縱坐標
+void gotoxy(int x, int y);//控制光標。X表示橫坐標，Y表示縱坐標fuck
 void console();//設置控制台窗口大小，為了讓程序運行得更好看
 void my_print();//設置介面
 void my_randout();//隨機出現方塊，並列印在提示區
