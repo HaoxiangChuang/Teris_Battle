@@ -448,14 +448,15 @@ void my_printblock() {
 	}
 }
 void gameover() {
+	system("cls");
 	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY | FOREGROUND_RED);
-	gotoxy(4, 10); printf(" ");
-	gotoxy(4, 11); printf(" ■■■ ■ ■ ■■■■ ■■■■ ");
-	gotoxy(4, 12); printf(" ■ ■ ■ ■ ■ ■ ■ ");
-	gotoxy(4, 13); printf(" ■ ■ ■ ■ ■■■■ ■■■■ ");
-	gotoxy(4, 14); printf(" ■ ■ ■ ■ ■ ■■ ");
-	gotoxy(4, 15); printf(" ■■■ ■ ■■■■ ■ ■ ");
-	gotoxy(4, 16); printf(" ");
+	// gotoxy(4, 10); printf(" ");
+	// gotoxy(4, 11); printf(" ■■■ ■ ■ ■■■■ ■■■■ ");
+	// gotoxy(4, 12); printf(" ■ ■ ■ ■ ■ ■ ■ ");
+	// gotoxy(4, 13); printf(" ■ ■ ■ ■ ■■■■ ■■■■ ");
+	// gotoxy(4, 14); printf(" ■ ■ ■ ■ ■ ■■ ");
+	// gotoxy(4, 15); printf(" ■■■ ■ ■■■■ ■ ■ ");
+	// gotoxy(4, 16); printf(" ");
 	gotoxy(32, 17); printf("空格鍵：重來\tEsc：退出");
 	switch (_getch()) {
 	case 32: system("cls");//清屏
