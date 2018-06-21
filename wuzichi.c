@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include "startscreen.h"
 #include "save.h"
+#include "whitewin.h"
+#include "blackwin.h"
 #define N 20
 
 void create_board(char (*board)[N]);
@@ -13,6 +15,7 @@ int check_board(char (*board)[N], int *person, int x, int y);
 int main(void) {
     startscreen();
     int input;
+    printf("µ¹§Ú«ö1\n");
     scanf("%d", &input);
     if (input == 1) {
         save();
@@ -79,9 +82,10 @@ void print_board(char (*board)[N]) {
 void print_info(int flag, int person) {
     if (flag == 1) {
         if (person == 0) {
-
+            blackwin();
             printf("¶Â´Ñ ³Ó!!\n");
         } else {
+            whitewin();
             printf("¥Õ´Ñ ³Ó!!\n");
         }
     } else {
