@@ -1,1 +1,1 @@
-void save(int score);
+void save(void);

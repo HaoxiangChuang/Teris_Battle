@@ -1,47 +1,33 @@
 typedef struct leaderboard{
-	char name[20];
-	int score;
+	char name1[20];
+	char name2[20];
 }Leaderboard;
 
 void rank(void){
 	
 	FILE *file;
-	char name[20];
-	int score;
+	char name1[20];
+	char name2[20];
 	int size=0;
 	
 	file=fopen("save.txt","r");
 	
 	while(!feof(file)){
-		fscanf(file,"%s%d",name,&score);
+		fscanf(file,"%s%s",name1,name2);
 		size++;
 		
 	rewind(file);
 	Leaderboard player[size];
 	for(int i=0;i<size;i++)
-		fscanf(file,"%s%d",player.name,&player.score);
+		fscanf(file,"%s%s",player.name1,&player.name2);
 	}
 	
-	int hold;
-	char temp[30];
 	
-	for(int i=0;i<size;i++){
-		if(player[size+1].score<player[size].score){
-			hold=player[size].score;
-			player[size].score=player[size+1].score;
-			player[size+1].score=hold;
-			
-			temp=player[size].name;
-			player[size].name=player[size+1].name;
-			player[size+1].name=temp;
-		}
-	}
-	
-	printf("　 　      遊戲排行榜\n");
-	printf("　 **************************\n　 RANK    NAME        SCORE\n");
+	printf("　 　      遊戲戰績\n");
+	printf("　 **************************\n");
 	for(i=0;i<size;i++)
 	{
-		printf("　 %d.      %-15s%2d\n",i+1,player[i].name,player[i].score);
+		printf("　 第%d.場      %-15s%2s\n",i+1,player[i].name1,player[i].name2);
 	}
 	printf("　 **************************\n");
 	
