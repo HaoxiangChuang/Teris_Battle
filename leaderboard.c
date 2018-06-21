@@ -1,4 +1,4 @@
-typedef leaderboard{
+typedef struct leaderboard{
 	char name[20];
 	int score;
 }Leaderboard;
