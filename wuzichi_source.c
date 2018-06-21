@@ -1,7 +1,5 @@
 #include <stdio.h>  
 #include <stdlib.h>  
-#include "startscreen.h"
-#include "save.h"
 #define N 20  
   
 void create_board(char (*board)[N]);  
@@ -12,13 +10,6 @@ int check_board(char (*board)[N],int *person,int x,int y);
   
 int main(void)  
 {  
-	startscreen();
-	int input;
-	scanf("%d",&input);
-	if(input==1){
-		save();
-	}
-	system("cls");
 	system("color e0");
     char board[N][N];  
     int person = 0,flag = 0,x = 0,y = 0;  
@@ -41,7 +32,8 @@ int main(void)
             return 0;  
         }  
         flag = check_board(board,&person,x,y);  
-    } 
+    }  
+  
     return 0;  
 }  
   

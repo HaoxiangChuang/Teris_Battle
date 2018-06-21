@@ -1,26 +1,29 @@
+
 void startscreen() 
 {
+	SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY);//黑底亮黃字。
+	srand((unsigned)time(NULL));
+	
 
-	printf("　 ************************************\n");
-	printf("　 *　　　         Tetris　　 　      *\n");
-	printf("　 *　         俄 羅 斯 方 塊　       *\n");
-	printf("　 *　　  　　  　　　　　　          *\n");
-	printf("　 ************************************\n");
-	printf("   *            * 遊戲介紹 *          *\n");
-	printf("   *   《俄羅斯方塊》，是1980年末期   *\n");
-	printf("   *   至1990年代初期風靡全世界的電   *\n");  
-	printf("   *   腦遊戲，是落下型益智遊戲的始   *\n");
-	printf("   *   祖，為蘇聯首個在美國發布的娛   *\n");
-	printf("   *   樂軟體。此遊戲最初是由阿列克   *\n");
-	printf("   *   謝·帕基特諾夫在蘇聯設計和編    *\n");	
-	printf("   *   寫，於1984年6月6日首次發布，   *\n");
-	printf("   *   當時帕基特諾夫正在蘇聯科學院   *\n");
-	printf("   *   電算中心工作。此遊戲的名稱是   *\n");
-	printf("　 *   由希臘語數字四前綴「tetra-」   *\n"); 
-	printf("　 *   和帕基特諾夫最喜歡的運動網球   *\n"); 
-	printf("　 *  「tennis」拼接而成，好好享受    *\n"); 
-	printf("　 *   遊戲吧!                        *\n"); 
-	printf("   ************************************\n");
+	
+int ch;
+printf("-----------------------------------------------------------------------------------------\n");
+printf("-■■■■■■■■■■■           ■■■■■■■■                ■        ■    ■   - \n");
+printf("-        ■                                   ■              ■■■■■  ■■■■■■ - \n");
+printf("-        ■                                 ■                 ■ ■■      ■    ■   - \n");
+printf("-        ■                               ■                  ■  ■ ■     ■■■■   - \n");
+printf("-   ■■■■■■■■          ■■■■■■■■■■■■■     ■   ■  ■    ■    ■   - \n");
+printf("-        ■       ■                      ■                      ■        ■■■■   - \n");
+printf("-        ■       ■                      ■                      ■        ■    ■   - \n");
+printf("-        ■       ■                      ■                      ■      ■■■■■■ - \n");
+printf("-        ■       ■                    ■■                      ■         ■    ■  - \n");  
+printf("- ■■■■■■■■■■■                  ■                      ■       ■        ■- \n");
+printf("-----------------------------------------------------------------------------------------\n");
+
+printf("Press enter to start_");
+ch=getchar();
+
+system("CLS");
 }
-
+//printf("Press any botton to continue");
 
