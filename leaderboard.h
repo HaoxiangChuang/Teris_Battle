@@ -1,1 +1,1 @@
-void rank(void);
+void leaderboard(void);

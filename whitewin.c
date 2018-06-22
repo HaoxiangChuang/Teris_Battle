@@ -2,9 +2,9 @@
 void whitewin(void) {
 
 	FILE *file;
-	char word[20] = "¥Õ´Ñ³Ó";
+	char word[10] = "¥Õ´Ñ³Ó";
 
 	file = fopen("save.txt", "a+");
-	fprintf(file, "%3s", word);
+	fprintf(file, "%10s", word);
 	printf("\n");
 }

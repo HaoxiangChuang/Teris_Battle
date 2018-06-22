@@ -1,43 +1,64 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <windows.h>
 #include "startscreen.h"
 #include "save.h"
 #include "whitewin.h"
 #include "blackwin.h"
+#include "leaderboard.h"
 #define N 20
 
 void create_board(char (*board)[N]);
 void print_board(char (*board)[N]);
 void print_info(int flag, int person);
+void gotoxy(int xpos, int ypos);
 int play_chess(char (*board)[N], int *person, int *x, int *y);
 int check_board(char (*board)[N], int *person, int x, int y);
 
 int main(void) {
     startscreen();
     int input;
-    printf("給我按1\n");
+    gotoxy(35, 15);
+    printf("給我按1或\n");
+    gotoxy(35, 17);
+    printf("按2進排行榜\n");
+    gotoxy(35, 19);
+    printf("按3離開");
     scanf("%d", &input);
-    if (input == 1) {
-        save();
-    }
-    system("cls");
-    system("color e0");
-    char board[N][N];
-    int person = 0, flag = 0, x = 0, y = 0;
+    while (input != 3) {
+        if (input == 1) {
+            system("cls");
+            save();
+            system("cls");
+            system("color e0");
+            char board[N][N];
+            int person = 0, flag = 0, x = 0, y = 0;
 
-    create_board(board);
-    while (1) {
-        print_board(board);
-        print_info(flag, person);
-        if (flag == 1) {
-            puts(" ");
+            create_board(board);
+            while (1) {
+                print_board(board);
+                print_info(flag, person);
+                if (flag == 1) {
+                    puts(" ");
+                }
+                if ((flag = play_chess(board, &person, &x, &y)) == -1 || flag == 3) {
+                    continue;
+                } else if (flag == 2) {
+                    return 0;
+                }
+                flag = check_board(board, &person, x, y);
+            }
         }
-        if ((flag = play_chess(board, &person, &x, &y)) == -1 || flag == 3) {
-            continue;
-        } else if (flag == 2) {
-            return 0;
+        if (input == 2) {
+            leaderboard();
         }
-        flag = check_board(board, &person, x, y);
+        gotoxy(35, 30);
+        printf("給我按1或\n");
+        gotoxy(35, 32);
+        printf("按2進排行榜\n");
+        gotoxy(35, 36);
+        printf("按3離開");
+        scanf("%d", &input);
     }
     return 0;
     system("pause");
@@ -84,18 +105,20 @@ void print_info(int flag, int person) {
         if (person == 0) {
             blackwin();
             printf("黑棋 勝!!\n");
+            return;
         } else {
             whitewin();
             printf("白棋 勝!!\n");
+            return;
         }
     } else {
         if (flag == -1) {
             printf("錯誤!請再輸入一次!\n");
         }
         if (person == 0) {
-            printf("換 黑棋!(Press q to quit)\n");
+            printf("換 黑棋!(按q離開遊戲)\n");
         } else {
-            printf("換 白棋!(Press q to quit)\n");
+            printf("換 白棋!(按q離開遊戲)\n");
         }
     }
 }
@@ -103,7 +126,7 @@ void print_info(int flag, int person) {
 int play_chess(char (*board)[N], int *person, int *x, int *y) {
     char choice;
 
-    printf("Input position(x,y): ");
+    printf("輸入位置(x,y): ");
     while ((scanf("%d,%d", x, y) != 2) || *x < 0 || *x > N - 1 || *y < 0 || *y > N - 1) {
         choice = getchar();
         if (choice == 'q' && getchar() == '\n') {
@@ -161,4 +184,10 @@ int check_board(char (*board)[N], int *person, int x, int y) {
     *person = (*person + 1) % 2;
 
     return 0;
+}
+void gotoxy(int xpos, int ypos) {
+    COORD scrn;
+    HANDLE hOuput = GetStdHandle(STD_OUTPUT_HANDLE);
+    scrn.X = xpos; scrn.Y = ypos;
+    SetConsoleCursorPosition(hOuput, scrn);
 }
