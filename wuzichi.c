@@ -52,11 +52,13 @@ int main(void) {
         if (input == 2) {
             leaderboard();
         }
-        gotoxy(35, 30);
+        system("cls");
+        startscreen();
+        gotoxy(35, 15);
         printf("給我按1或\n");
-        gotoxy(35, 32);
+        gotoxy(35, 17);
         printf("按2進排行榜\n");
-        gotoxy(35, 36);
+        gotoxy(35, 19);
         printf("按3離開");
         scanf("%d", &input);
     }
