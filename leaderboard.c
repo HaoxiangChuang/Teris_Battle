@@ -14,7 +14,7 @@ void leaderboard(void) {
 	char WIN[10];
 	int size = 0;
 
-	file = fopen("save.txt", "r");
+	file = fopen("save.txt", "a+");
 
 	while (!feof(file)) {
 		fscanf(file, "%s %s %s", NAME1, NAME2, WIN);

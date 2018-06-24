@@ -42,9 +42,9 @@ int main(void) {
                     puts(" ");
                 }
                 if ((flag = play_chess(board, &person, &x, &y)) == -1 || flag == 3) {
-                    continue;
+                    continue;//flag=-1的時候跳過此次迴圈(代表輸入有問題)
                 } else if (flag == 2) {
-                    return 0;
+                    return 0;//結束遊戲
                 }
                 flag = check_board(board, &person, x, y);
             }
@@ -130,7 +130,7 @@ int play_chess(char (*board)[N], int *person, int *x, int *y) {
     while ((scanf("%d,%d", x, y) != 2) || *x < 0 || *x > N - 1 || *y < 0 || *y > N - 1) {
         choice = getchar();
         if (choice == 'q' && getchar() == '\n') {
-            return 2;
+            return 2;//quit the game
         } else if (choice == 'r' && getchar() == '\n') {
             if (board[*x][*y] == '+') {
                 printf("You have already rescinded!\n");
@@ -150,7 +150,6 @@ int play_chess(char (*board)[N], int *person, int *x, int *y) {
     } else {
         board[*x][*y] = 'O';
     }
-
     return 0;
 }
 
