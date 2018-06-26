@@ -178,7 +178,7 @@ int check_board(char (*board)[N], int *person, int x, int y) {
                 pos_y = y;
             }
             if (cnt == 5) {
-                return 1;
+                return 1;//五子連線
             }
         }
     }

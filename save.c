@@ -10,7 +10,7 @@ void save(void) {
 	scanf("%s", &name1);
 	printf("請輸入玩家2的名字");
 	scanf("%s", &name2);
-	fprintf(file, "%10s%10s\n", name1, name2);
+	fprintf(file, "%10s%10s", name1, name2);
 	printf("\n");
 	fclose(file);
 }
