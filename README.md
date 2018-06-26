@@ -1,7 +1,7 @@
 # Wuzichi
 I'm a beginner in programming,this is my first project done with my friend.     
 
-**The program is for Windows only.**  
+**This game is for Windows only.**  
 
 To compile ,just open the cmd type make or mingw32-make and it will make a execution file.   
 
